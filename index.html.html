@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Andara - Viajes a medida por Cuyo</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+	<link rel="stylesheet" href="css/jquery.timepicker.css">
+	<link rel="stylesheet" href="css/flaticon.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<style>
+		.stats-bar{background:#f8f9fa; padding:40px 0;}
+		.stats-bar .stat-item{text-align:center; padding:10px 0;}
+		.stats-bar .stat-item .num{font-size:32px; font-weight:700; color:#199ad1; display:block;}
+		.stats-bar .stat-item .label{font-size:14px; color:#6c757d;}
+		.feature-box{text-align:center; padding:30px 15px;}
+		.feature-box .icon{width:70px; height:70px; line-height:70px; border-radius:50%; background:rgba(25,154,209,.1); color:#199ad1; font-size:28px; margin:0 auto 18px;}
+		.program-img{position:relative; height:380px; border-radius:6px; background-size:cover; background-position:center; overflow:hidden;}
+		.program-img .tags{position:absolute; left:14px; bottom:14px; display:flex; flex-wrap:wrap; gap:6px;}
+		.tag-pill{background:#fff; color:#212529; font-size:11px; font-weight:600; letter-spacing:.5px; text-transform:uppercase; padding:6px 12px; border-radius:30px;}
+		.why-section{position:relative; background-size:cover; background-position:center; color:#fff;}
+		.why-section::before{content:""; position:absolute; inset:0; background:rgba(12,22,32,.78);}
+		.why-section .container{position:relative; z-index:1;}
+		.why-label{color:#199ad1; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase;}
+		.why-title{font-size:38px; font-weight:700; line-height:1.2; color:#fff;}
+		.why-title em{font-family:'Caveat',cursive; font-weight:600; color:#7fd0f0; font-size:1.15em;}
+		.why-text{color:rgba(255,255,255,.8); font-size:15px; line-height:1.8;}
+		.why-card{border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.06); border-radius:12px; padding:24px; height:100%;}
+		.why-card .fa{color:#199ad1; font-size:20px; margin-bottom:14px; display:block;}
+		.why-card h3{font-size:17px; font-weight:600; color:#fff; margin-bottom:8px;}
+		.why-card p{font-size:13.5px; color:rgba(255,255,255,.75); margin:0; line-height:1.6;}
+		.plans-section{background:#d6e2ec;}
+		.plans-section .heading-section h2{color:#1b3a5c;}
+		.plan-card{background:#f7f4ef; border-radius:22px; padding:20px 20px 26px; height:auto; display:flex; flex-direction:column; text-align:center; box-shadow:0 8px 24px rgba(27,58,92,.10); cursor:pointer; transition:box-shadow .3s, transform .3s;}
+		.plan-card:hover{box-shadow:0 12px 30px rgba(27,58,92,.18); transform:translateY(-3px);}
+		.plan-card .plan-img{width:100%; height:165px; object-fit:cover; border-radius:18px; display:block;}
+		.plan-card .plan-name{font-size:28px; font-weight:800; color:#2f5f94; margin:16px 0 2px;}
+		.plan-card .plan-dur{font-size:13px; font-weight:600; color:#2f5f94; margin-bottom:8px;}
+		.plan-card .plan-desc{font-size:13px; font-weight:700; color:#111; margin-bottom:14px;}
+		.plan-card .plan-more{max-height:0; overflow:hidden; transition:max-height .45s ease;}
+		.plan-card ul{list-style:none; text-align:left; padding:16px 4px 0; margin:0; font-size:15px; color:#222; line-height:1.5;}
+		.plan-card li{position:relative; padding-left:26px; margin-bottom:8px;}
+		.plan-card li::before{content:"✓"; position:absolute; left:0; color:#2f5f94; font-weight:700;}
+		.plan-card .plan-toggle{margin-top:14px; font-size:13px; font-weight:600; color:#2f5f94; user-select:none;}
+		.plan-card .plan-toggle .fa{margin-left:4px; transition:transform .3s; font-size:11px;}
+		.plan-card.open .plan-toggle .fa{transform:rotate(180deg);}
+		.plan-card .plan-price{display:inline-block; background:#2f5f94; color:#fff; font-size:17px; padding:8px 26px; border-radius:30px;}
+		.plan-card .plan-per{font-size:14px; color:#111; margin-top:8px;}
+		html{scroll-behavior:smooth;}
+		section[id], footer[id]{scroll-margin-top:70px;}
+		.ftco-section{padding:3em 0;}
+		.ftco-section.ftco-no-pt{padding-top:0;}
+		@media (max-width:767.98px){.ftco-section{padding:2.5em 0;} .ftco-section.ftco-no-pt{padding-top:0;}}
+		.stats-landscape{position:relative; padding:3.5em 0; background:url(images/paisaje-cifras.jpg) center 55%/cover no-repeat;}
+		.stats-landscape::before{content:""; position:absolute; inset:0; background:rgba(248,250,252,.85);}
+		.stats-landscape .container{position:relative; z-index:1;}
+		.andara-footer{background:#1b3a5c; color:rgba(255,255,255,.75); padding:70px 0 0; font-size:14px; line-height:1.6;}
+		.andara-footer a{color:rgba(255,255,255,.75); text-decoration:none; transition:.2s;}
+		.andara-footer a:hover{color:#fff;}
+		.andara-footer .container{max-width:1280px;}
+		.af-grid{display:grid; grid-template-columns:1.7fr .95fr 1.15fr 1.2fr 1.5fr 1.2fr; gap:28px; padding-bottom:50px;}
+		.af-brand{display:flex; align-items:center; gap:12px; margin-bottom:16px;}
+		.af-logo{background:#fff; border-radius:14px; padding:8px 10px; display:flex;}
+		.af-logo img{height:46px; width:auto; display:block;}
+		.af-name{font-size:28px; font-weight:700; color:#fff; letter-spacing:.5px;}
+		.af-col h4{font-size:15px; font-weight:600; color:#fff; margin-bottom:18px;}
+		.af-col ul{list-style:none; padding:0; margin:0;}
+		.af-col li{margin-bottom:10px;}
+		.af-col li .fa{width:22px; color:#7fd0f0;}
+		.af-social{margin-top:18px;}
+		.af-social a{width:34px; height:34px; border:1px solid rgba(255,255,255,.4); border-radius:50%; display:inline-flex; align-items:center; justify-content:center; margin-right:8px; font-size:15px;}
+		.af-social a:hover{background:#199ad1; border-color:#199ad1;}
+		.af-pay span{display:flex; align-items:center; gap:8px; background:#fff; color:#1b3a5c; border-radius:8px; padding:8px 12px; font-weight:600; font-size:13px; margin-bottom:10px;}
+		.af-pay span .fa{color:#199ad1;}
+		.af-note{font-size:12.5px; color:rgba(255,255,255,.65);}
+		.af-bottom{border-top:1px solid rgba(255,255,255,.15); padding:22px 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:13px;}
+		.af-bottom .sep{margin:0 10px; color:rgba(255,255,255,.3);}
+		@media (max-width:991px){.af-grid{grid-template-columns:repeat(3,1fr);} .af-brand-col{grid-column:1/-1;}}
+		@media (max-width:575px){.af-grid{grid-template-columns:repeat(2,1fr);}}
+		.program-title{font-size:17px; font-weight:700; line-height:1.3; margin-bottom:0;}
+		.style-card{position:relative; display:block; height:170px; border-radius:8px; background-size:cover; background-position:center; overflow:hidden; text-decoration:none;}
+		.style-card::after{content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0) 60%);}
+		.style-card-label{position:absolute; left:16px; bottom:14px; z-index:2; color:#fff; font-weight:700; font-size:16px;}
+		.style-card-arrow{position:absolute; right:14px; top:14px; z-index:2; color:#fff; font-size:14px; transform:rotate(45deg); opacity:.9;}
+		.style-card:hover .style-card-label, .style-card:hover .style-card-arrow{color:#fff;}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand d-flex align-items-center" href="#inicio"><img src="images/logo-andara.png" alt="Andara" style="height:44px; width:auto; display:block;"><span style="margin-left:10px; font-size:24px; font-weight:700; letter-spacing:.5px; text-transform:none;">Andara</span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menú
+			</button>
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a href="#inicio" class="nav-link">Inicio</a></li>
+					<li class="nav-item"><a href="#programas" class="nav-link">Programas</a></li>
+					<li class="nav-item"><a href="#paquetes" class="nav-link">Paquetes</a></li>
+					<li class="nav-item"><a href="#nosotros" class="nav-link">Nosotros</a></li>
+					<li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- HERO -->
+	<div class="hero-wrap js-fullheight" id="inicio" style="background-image: url('images/bg_5.jpg');">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
+				<div class="col-md-8 ftco-animate">
+					<span class="subheading">Andara · Agencia de Viajes</span>
+					<h1 class="mb-4">Descubrí la region de cuyo con nosotoros</h1>
+					<p class="caps">Un viaje a cuyo, Un recuerdo par siempre</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- STATS BAR -->
+	<div class="stats-bar">
+		<div class="container">
+			<div class="row">
+				<div class="col-6 col-md-3 stat-item">
+					<span class="num">+8</span>
+					<span class="label">años diseñando viajes</span>
+				</div>
+				<div class="col-6 col-md-3 stat-item">
+					<span class="num">24/7</span>
+					<span class="label">asistencia al viajero</span>
+				</div>
+				<div class="col-6 col-md-3 stat-item">
+					<span class="num">+15</span>
+					<span class="label">destinos en Cuyo</span>
+				</div>
+				<div class="col-6 col-md-3 stat-item">
+					<span class="num">100%</span>
+					<span class="label">itinerarios a medida</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- PROGRAMAS DESTACADOS -->
+	<section class="ftco-section" id="programas">
+		<div class="container">
+			<div class="row align-items-end pb-4">
+				<div class="col-md-8 ftco-animate">
+					<span class="d-block mb-2" style="color:#199ad1; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase;">Programas destacados</span>
+					<h2 class="mb-0" style="font-size:34px; font-weight:700;">Viajes pensados para recorrer <em style="font-family:'Caveat',cursive; font-weight:600; color:#199ad1;">Cuyo.</em></h2>
+				</div>
+				<div class="col-md-4 text-md-right ftco-animate">
+					<a href="#" style="color:#212529; font-weight:600; font-size:14px;">Todos los programas <span class="fa fa-arrow-right" style="font-size:12px;"></span></a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 ftco-animate">
+					<div class="program-card">
+						<div class="program-img" style="background-image:url(images/Mendozaa.jpg);">
+							<div class="tags">
+								<span class="tag-pill">Enoturismo</span>
+								<span class="tag-pill">Montaña</span>
+								<span class="tag-pill">A medida</span>
+							</div>
+						</div>
+						<div class="d-flex justify-content-between align-items-start pt-3">
+							<h3 class="program-title">Mendoza: Alta Montaña y Ruta del Vino</h3>
+							<span class="fa fa-arrow-up" style="transform:rotate(45deg); color:#199ad1; font-size:14px; margin-left:10px;"></span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 ftco-animate">
+					<div class="program-card">
+						<div class="program-img" style="background-image:url(images/luna.jpg);">
+							<div class="tags">
+								<span class="tag-pill">Naturaleza</span>
+								<span class="tag-pill">Astroturismo</span>
+							</div>
+						</div>
+						<div class="d-flex justify-content-between align-items-start pt-3">
+							<h3 class="program-title">San Juan: Valle de la Luna y Noches de Estrellas</h3>
+							<span class="fa fa-arrow-up" style="transform:rotate(45deg); color:#199ad1; font-size:14px; margin-left:10px;"></span>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 ftco-animate">
+					<div class="program-card">
+						<div class="program-img" style="background-image:url(images/funes.jpg);">
+							<div class="tags">
+								<span class="tag-pill">Naturaleza</span>
+								<span class="tag-pill">Descanso</span>
+							</div>
+						</div>
+						<div class="d-flex justify-content-between align-items-start pt-3">
+							<h3 class="program-title">San Luis: Sierras, Lagos y Potrero de los Funes</h3>
+							<span class="fa fa-arrow-up" style="transform:rotate(45deg); color:#199ad1; font-size:14px; margin-left:10px;"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ESTILOS DE VIAJE -->
+	<section class="ftco-section ftco-no-pt">
+		<div class="container">
+			<div class="row pb-4">
+				<div class="col-md-8 ftco-animate">
+					<span class="d-block mb-2" style="color:#199ad1; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase;">Estilos de viaje</span>
+					<h2 class="mb-0" style="font-size:34px; font-weight:700;">Distintas formas <em style="font-family:'Caveat',cursive; font-weight:600; color:#199ad1;">de vivir cada destino.</em></h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 col-sm-6 ftco-animate mb-4">
+					<a href="#" class="style-card" style="background-image:url(images/image_1.jpg);">
+						<span class="style-card-label">Viajes a medida</span>
+						<span class="style-card-arrow fa fa-arrow-up"></span>
+					</a>
+				</div>
+				<div class="col-md-4 col-sm-6 ftco-animate mb-4">
+					<a href="#" class="style-card" style="background-image:url(images/destination-1.jpg);">
+						<span class="style-card-label">Enoturismo</span>
+						<span class="style-card-arrow fa fa-arrow-up"></span>
+					</a>
+				</div>
+				<div class="col-md-4 col-sm-6 ftco-animate mb-4">
+					<a href="#" class="style-card" style="background-image:url(images/destination-2.jpg);">
+						<span class="style-card-label">Alta Montaña</span>
+						<span class="style-card-arrow fa fa-arrow-up"></span>
+					</a>
+				</div>
+				<div class="col-md-4 col-sm-6 ftco-animate mb-4">
+					<a href="#" class="style-card" style="background-image:url(images/image_2.jpg);">
+						<span class="style-card-label">Naturaleza</span>
+						<span class="style-card-arrow fa fa-arrow-up"></span>
+					</a>
+				</div>
+				<div class="col-md-4 col-sm-6 ftco-animate mb-4">
+					<a href="#" class="style-card" style="background-image:url(images/image_3.jpg);">
+						<span class="style-card-label">Aventura</span>
+						<span class="style-card-arrow fa fa-arrow-up"></span>
+					</a>
+				</div>
+				<div class="col-md-4 col-sm-6 ftco-animate mb-4">
+					<a href="#" class="style-card" style="background-image:url(images/place-3.jpg);">
+						<span class="style-card-label">Relax y Termas</span>
+						<span class="style-card-arrow fa fa-arrow-up"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- POR QUÉ ANDARA -->
+	<section class="ftco-section" id="nosotros">
+		<div class="container">
+
+			<!-- Intro -->
+			<div class="row align-items-center pb-5">
+				<div class="col-md-6 ftco-animate">
+					<span class="subheading d-block mb-2" style="color:#199ad1; font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase;">Nosotros</span>
+					<h2 class="mb-3">Sobre Andara</h2>
+					<p style="font-family:'Caveat',cursive; font-size:24px; color:#199ad1; font-weight:600;">"Un viaje a Cuyo, un recuerdo para siempre."</p>
+					<p>Somos una agencia de viajes especializada en la región de Cuyo. Diseñamos cada itinerario a medida, trabajando codo a codo con bodegas, guías de montaña y operadores locales que conocemos de primera mano.</p>
+				</div>
+				<div class="col-md-6 ftco-animate">
+					<div style="background-image:url(images/about-1.jpg); background-size:cover; background-position:center; height:320px; border-radius:10px;"></div>
+				</div>
+			</div>
+
+			<!-- Historia -->
+			<div class="row align-items-center pb-5 flex-md-row-reverse">
+				<div class="col-md-6 ftco-animate">
+					<h3 class="mb-3" style="font-size:22px; font-weight:700;">Nuestra historia</h3>
+					<p>Andara nació de un grupo de guías y amantes de la cordillera que, después de años mostrándole Cuyo a amigos y familia, decidieron convertir esa pasión en una agencia.</p>
+					<p>Desde entonces, acompañamos a cada viajero con el mismo criterio del primer día: conocer el destino a fondo antes de recomendarlo, y armar el viaje alrededor de la persona, no al revés.</p>
+				</div>
+				<div class="col-md-6 ftco-animate">
+					<div style="background-image:url(images/image_2.jpg); background-size:cover; background-position:center; height:320px; border-radius:10px;"></div>
+				</div>
+			</div>
+
+			<!-- Misión / Visión / Objetivos / Valores -->
+			<div class="row pt-4">
+				<div class="col-md-6 col-lg-3 ftco-animate feature-box">
+					<div class="icon"><span class="fa fa-bullseye"></span></div>
+					<h3 style="font-size:17px;">Misión</h3>
+					<p>Ofrecer paquetes turísticos de calidad, con la mejor relación precio-servicio, construyendo relaciones duraderas con nuestros clientes y proveedores.</p>
+				</div>
+				<div class="col-md-6 col-lg-3 ftco-animate feature-box">
+					<div class="icon"><span class="fa fa-eye"></span></div>
+					<h3 style="font-size:17px;">Visión</h3>
+					<p>Ser la agencia de viajes líder de la región, reconocida por la calidad de nuestro servicio y la confianza de nuestros clientes.</p>
+				</div>
+				<div class="col-md-6 col-lg-3 ftco-animate feature-box">
+					<div class="icon"><span class="fa fa-flag-checkered"></span></div>
+					<h3 style="font-size:17px;">Objetivos</h3>
+					<p>Consolidarnos como la agencia de viajes más elegida de la región en los próximos 15 años, ampliando nuestra cartera de destinos y servicios.</p>
+				</div>
+				<div class="col-md-6 col-lg-3 ftco-animate feature-box">
+					<div class="icon"><span class="fa fa-star"></span></div>
+					<h3 style="font-size:17px;">Valores</h3>
+					<p>Innovación, buena calidad y atención personalizada en cada etapa del viaje.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ANDARA EN CIFRAS -->
+	<section class="stats-landscape">
+		<div class="container">
+			<div class="row justify-content-center pb-4">
+				<div class="col-md-7 heading-section text-center ftco-animate">
+					<h2 class="mb-0" style="font-size:28px; font-weight:700;">Andara en cifras</h2>
+				</div>
+			</div>
+			<div class="row text-center justify-content-center">
+				<div class="col-md-4 col-lg-3 ftco-animate mb-4">
+					<div class="p-4 bg-white h-100" style="border-radius:10px;">
+						<span class="fa fa-calendar" style="font-size:30px; color:#199ad1;"></span>
+						<h3 class="mt-3 mb-1" style="font-size:30px; font-weight:700;">+8 años</h3>
+						<p class="mb-0">Diseñando viajes por Cuyo</p>
+					</div>
+				</div>
+				<div class="col-md-4 col-lg-3 ftco-animate mb-4">
+					<div class="p-4 bg-white h-100" style="border-radius:10px;">
+						<span class="fa fa-users" style="font-size:30px; color:#199ad1;"></span>
+						<h3 class="mt-3 mb-1" style="font-size:30px; font-weight:700;">+2.000</h3>
+						<p class="mb-0">Viajeros acompañados</p>
+					</div>
+				</div>
+				<div class="col-md-4 col-lg-3 ftco-animate mb-4">
+					<div class="p-4 bg-white h-100" style="border-radius:10px;">
+						<span class="fa fa-map" style="font-size:30px; color:#199ad1;"></span>
+						<h3 class="mt-3 mb-1" style="font-size:30px; font-weight:700;">+15</h3>
+						<p class="mb-0">Destinos en Mendoza, San Juan y San Luis</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- PAQUETES -->
+	<section class="ftco-section plans-section" id="paquetes">
+		<div class="container">
+			<div class="row justify-content-center pb-4">
+				<div class="col-md-7 heading-section text-center ftco-animate">
+					<span class="subheading">Nuestros Paquetes</span>
+					<h2 class="mb-4">Elegí tu Plan de Viaje</h2>
+					<p>Tenemos un paquete pensado para cada tipo de viajero. Todos incluyen asesoramiento personalizado de nuestra agencia.</p>
+				</div>
+			</div>
+			<div class="row align-items-start">
+				<div class="col-md-4 ftco-animate mb-4">
+					<div class="plan-card" role="button" tabindex="0" aria-expanded="false">
+						<img class="plan-img" src="images/destination-1.jpg" alt="Plan Básico">
+						<h3 class="plan-name">Básico</h3>
+						<div class="plan-dur">3 días / 2 noches</div>
+						<p class="plan-desc">Ideal para una escapada corta a Mendoza, sin complicaciones.</p>
+						<div><span class="plan-price">Desde $470.000</span></div>
+						<p class="plan-per mb-0">Por pareja</p>
+						<div class="plan-toggle"><span class="txt">Ver detalles</span> <span class="fa fa-chevron-down"></span></div>
+						<div class="plan-more">
+							<ul>
+								<li>Alojamiento 3 estrellas, habitación doble</li>
+								<li>Traslados aeropuerto-hotel</li>
+								<li>City tour + bodega en Maipú</li>
+								<li>Desayuno incluido</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 ftco-animate mb-4">
+					<div class="plan-card" role="button" tabindex="0" aria-expanded="false">
+						<img class="plan-img" src="images/SANJUANN.jpg" alt="Plan Intermedio">
+						<h3 class="plan-name">Intermedio</h3>
+						<div class="plan-dur">5 días / 4 noches</div>
+						<p class="plan-desc">Nuestro plan más elegido: más comodidad y excursiones incluidas.</p>
+						<div><span class="plan-price">Desde $880.000</span></div>
+						<p class="plan-per mb-0">Por pareja</p>
+						<div class="plan-toggle"><span class="txt">Ver detalles</span> <span class="fa fa-chevron-down"></span></div>
+						<div class="plan-more">
+							<ul>
+								<li>Alojamiento 4 estrellas, habitación doble</li>
+								<li>Traslados privados</li>
+								<li>Día en el Valle de Uco (3 bodegas + almuerzo)</li>
+								<li>Excursión a Alta Montaña</li>
+								<li>Cabalgata en Potrerillos</li>
+								<li>Desayuno y una cena incluidos</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 ftco-animate mb-4">
+					<div class="plan-card" role="button" tabindex="0" aria-expanded="false">
+						<img class="plan-img" src="images/asdj12.jpg" alt="Plan Profesional">
+						<h3 class="plan-name">Profesional</h3>
+						<div class="plan-dur">8 días / 7 noches</div>
+						<p class="plan-desc">La experiencia completa por Cuyo, todo resuelto de principio a fin.</p>
+						<div><span class="plan-price">Desde $1.450.000</span></div>
+						<p class="plan-per mb-0">Por pareja</p>
+						<div class="plan-toggle"><span class="txt">Ver detalles</span> <span class="fa fa-chevron-down"></span></div>
+						<div class="plan-more">
+							<ul>
+								<li>Alojamiento 5 estrellas (Mendoza, San Rafael y San Juan)</li>
+								<li>Traslados privados VIP en todo el recorrido</li>
+								<li>Ruta del vino en el Valle de Uco</li>
+								<li>Trekking y mirador en Alta Montaña</li>
+								<li>Rafting en el Cañón del Atuel</li>
+								<li>Valle de la Luna con guía especializado</li>
+								<li>Noche de astroturismo en Calingasta</li>
+								<li>Todas las comidas incluidas</li>
+								<li>Guía personal exclusivo y asistencia 24/7</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- TESTIMONIOS -->
+	<section class="ftco-section testimony-section bg-bottom" style="background-image: url(images/bg_1.jpg);">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row justify-content-center pb-4">
+				<div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+					<span class="subheading">Opiniones</span>
+					<h2 class="mb-4">Lo que dicen nuestros viajeros</h2>
+				</div>
+			</div>
+			<div class="row ftco-animate">
+				<div class="col-md-12">
+					<div class="carousel-testimony owl-carousel">
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<p class="star">
+										<span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+									</p>
+									<p class="mb-4">Viajamos con Andara al Valle de Uco y se notó que conocían cada bodega de primera mano. Todo resuelto, sin vueltas.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">Marcela Funes</p>
+											<span class="position">Cliente Andara</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<p class="star">
+										<span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+									</p>
+									<p class="mb-4">El trekking en Alta Montaña superó lo que esperábamos, y la asistencia 24/7 nos dio mucha tranquilidad durante todo el viaje.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">Ezequiel Torres</p>
+											<span class="position">Cliente Andara</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<p class="star">
+										<span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+									</p>
+									<p class="mb-4">La noche de astroturismo en Calingasta fue el punto más alto del viaje. Recomiendo Andara para quienes buscan algo distinto.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(images/person_3.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">Luciana Páez</p>
+											<span class="position">Cliente Andara</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<p class="star">
+										<span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+									</p>
+									<p class="mb-4">Hicimos el plan Intermedio y fue exactamente lo que buscábamos: bodegas, montaña y una cabalgata inolvidable. Todo muy bien organizado.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">Joaquín Medina</p>
+											<span class="position">Cliente Andara</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<p class="star">
+										<span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+									</p>
+									<p class="mb-4">Nos asesoraron desde el primer mensaje y adaptaron el itinerario a nuestras fechas. Se nota la atención personalizada.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">Paula Giménez</p>
+											<span class="position">Cliente Andara</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<p class="star">
+										<span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+									</p>
+									<p class="mb-4">El rafting en el Cañón del Atuel fue una experiencia increíble. Los guías muy profesionales y atentos.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(images/person_3.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">Federico Sosa</p>
+											<span class="position">Cliente Andara</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<p class="star">
+										<span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+									</p>
+									<p class="mb-4">Contratamos el plan Básico para una escapada de fin de semana y superó nuestras expectativas por el precio.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">Camila Ortiz</p>
+											<span class="position">Cliente Andara</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<p class="star">
+										<span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+									</p>
+									<p class="mb-4">La ruta del vino en el Valle de Uco fue de lo mejor del viaje. Volvería a elegir Andara sin dudarlo.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">Martín Aguirre</p>
+											<span class="position">Cliente Andara</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<p class="star">
+										<span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+									</p>
+									<p class="mb-4">Viajamos en pareja con el plan Profesional. Cada detalle estaba resuelto, solo tuvimos que disfrutar.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(images/person_3.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">Soledad Navarro</p>
+											<span class="position">Cliente Andara</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<p class="star">
+										<span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+									</p>
+									<p class="mb-4">Excelente comunicación antes, durante y después del viaje. Notamos que realmente conocen cada destino.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">Gastón Ledesma</p>
+											<span class="position">Cliente Andara</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<p class="star">
+										<span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+									</p>
+									<p class="mb-4">El Valle de la Luna fue impresionante y la guía conocía todos los secretos del lugar. Súper recomendable.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">Valentina Roldán</p>
+											<span class="position">Cliente Andara</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testimony-wrap py-4">
+								<div class="text">
+									<p class="star">
+										<span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+									</p>
+									<p class="mb-4">Nos ayudaron a cambiar una excursión a último momento sin ningún problema. Muy flexibles y amables.</p>
+									<div class="d-flex align-items-center">
+										<div class="user-img" style="background-image: url(images/person_3.jpg)"></div>
+										<div class="pl-3">
+											<p class="name">Nicolás Cabrera</p>
+											<span class="position">Cliente Andara</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- PAQUETES -->
+	<!-- POR QUÉ ANDARA -->
+	<section class="ftco-section why-section" style="background-image:url(images/bg_4.jpg);">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-5 mb-5 mb-lg-0 ftco-animate">
+					<span class="d-block mb-3 why-label">Por qué Andara</span>
+					<h2 class="why-title mb-4">Viajar por Cuyo con alguien que <em>lo conoce de verdad.</em></h2>
+					<p class="why-text">Armamos cada viaje a partir de lo que vos querés vivir, con proveedores que conocemos de cerca y un equipo que te acompaña antes, durante y después de tu escapada.</p>
+					<a href="#contacto" class="btn btn-primary px-4 py-3 mt-3" style="background:#199ad1; border-color:#199ad1;">Contactanos <span class="fa fa-arrow-right ml-1" style="font-size:13px;"></span></a>
+				</div>
+				<div class="col-lg-7">
+					<div class="row">
+						<div class="col-md-6 mb-4 ftco-animate">
+							<div class="why-card">
+								<span class="fa fa-map-marker"></span>
+								<h3>Conocimiento local</h3>
+								<p>Recorremos cada destino antes de recomendarlo, para que sepas qué esperar.</p>
+							</div>
+						</div>
+						<div class="col-md-6 mb-4 ftco-animate">
+							<div class="why-card">
+								<span class="fa fa-refresh"></span>
+								<h3>Flexibilidad total</h3>
+								<p>Si cambian tus planes, ajustamos el itinerario sin vueltas.</p>
+							</div>
+						</div>
+						<div class="col-md-6 mb-4 mb-md-0 ftco-animate">
+							<div class="why-card">
+								<span class="fa fa-heart"></span>
+								<h3>Atención personalizada</h3>
+								<p>Un mismo interlocutor te acompaña durante todo el proceso.</p>
+							</div>
+						</div>
+						<div class="col-md-6 ftco-animate">
+							<div class="why-card">
+								<span class="fa fa-life-ring"></span>
+								<h3>Soporte durante el viaje</h3>
+								<p>Asistencia real mientras viajás, las 24 horas.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="andara-footer" id="contacto">
+		<div class="container">
+			<div class="af-grid">
+				<div class="af-col af-brand-col">
+					<div class="af-brand">
+						<span class="af-logo"><img src="images/logo-andara.png" alt="Andara"></span>
+						<span class="af-name">Andara</span>
+					</div>
+					<p>Tu agencia de viajes de confianza para vivir Cuyo: viajes a medida por Mendoza, San Juan y San Luis.</p>
+					<div class="af-social">
+						<a href="#" aria-label="Facebook"><span class="fa fa-facebook"></span></a>
+						<a href="images/Insta.png" class="image-popup" aria-label="Instagram"><span class="fa fa-instagram"></span></a>
+						<a href="#" aria-label="Twitter"><span class="fa fa-twitter"></span></a>
+						<a href="#" aria-label="WhatsApp"><span class="fa fa-whatsapp"></span></a>
+						<a href="images/YT.png" class="image-popup" aria-label="YouTube"><span class="fa fa-youtube-play"></span></a>
+					</div>
+				</div>
+				<div class="af-col">
+					<h4>Enlaces rápidos</h4>
+					<ul>
+						<li><a href="#inicio">Inicio</a></li>
+						<li><a href="#programas">Programas</a></li>
+						<li><a href="#paquetes">Paquetes</a></li>
+						<li><a href="#nosotros">Nosotros</a></li>
+						<li><a href="#contacto">Contacto</a></li>
+					</ul>
+				</div>
+				<div class="af-col">
+					<h4>Destinos principales</h4>
+					<ul>
+						<li><a href="#">Valle de Uco</a></li>
+						<li><a href="#">Alta Montaña</a></li>
+						<li><a href="#">Cañón del Atuel</a></li>
+						<li><a href="#">Valle de la Luna</a></li>
+						<li><a href="#">Merlo</a></li>
+					</ul>
+				</div>
+				<div class="af-col">
+					<h4>Guía de viaje</h4>
+					<ul>
+						<li><a href="#">Consejos de viaje</a></li>
+						<li><a href="#">Documentación necesaria</a></li>
+						<li><a href="#">Preguntas frecuentes</a></li>
+						<li><a href="#">Política de cancelación</a></li>
+						<li><a href="#">Política de privacidad</a></li>
+					</ul>
+				</div>
+				<div class="af-col">
+					<h4>Soporte</h4>
+					<ul>
+						<li><span class="fa fa-phone"></span><a href="#">+54 91123942386</a></li>
+						<li><span class="fa fa-envelope-o"></span><a href="mailto:AndaraTravel@gmail.com">AndaraTravel@gmail.com</a></li>
+						<li><span class="fa fa-whatsapp"></span><a href="#">Chat por WhatsApp</a></li>
+						<li><span class="fa fa-clock-o"></span>Lun a Dom: 9 a 20 hs</li>
+					</ul>
+				</div>
+				<div class="af-col af-pay">
+					<h4>Aceptamos</h4>
+					<span><i class="fa fa-money"></i> Efectivo</span>
+					<span><i class="fa fa-exchange"></i> Transferencia</span>
+					<span><i class="fa fa-credit-card"></i> Tarjeta de crédito</span>
+					<p class="af-note mb-0">15% off al contado y hasta 6 cuotas sin interés.</p>
+				</div>
+			</div>
+			<div class="af-bottom">
+				<div><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					&copy; <script>document.write(new Date().getFullYear());</script> Andara. Todos los derechos reservados. 
+				<div><a href="#">Términos y condiciones</a><span class="sep">|</span><a href="#">Política de privacidad</a></div>
+			</div>
+		</div>
+	</footer>
+
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#199ad1"/></svg></div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/jquery.animateNumber.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/scrollax.min.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+	document.querySelectorAll('.plan-card').forEach(function(card){
+		var more = card.querySelector('.plan-more'), txt = card.querySelector('.plan-toggle .txt');
+		function toggle(){
+			var open = card.classList.toggle('open');
+			card.setAttribute('aria-expanded', open);
+			more.style.maxHeight = open ? more.scrollHeight + 'px' : '0px';
+			txt.textContent = open ? 'Ver menos' : 'Ver detalles';
+		}
+		card.addEventListener('click', toggle);
+		card.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(); } });
+	});
+	</script>
+	<script>
+	document.querySelectorAll('#ftco-nav .nav-link, .navbar-brand').forEach(function(a){
+		a.addEventListener('click', function(){
+			var c = document.getElementById('ftco-nav');
+			if (c && c.classList.contains('show')) { $(c).collapse('hide'); }
+		});
+	});
+	</script>
+</body>
+</html>
